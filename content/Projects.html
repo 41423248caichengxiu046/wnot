@@ -1,0 +1,222 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cp_demo</title>
+        <meta charset="utf-8">
+<meta property="head" content="H1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cp demo</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cp demo</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='AI.html'>AI</a></li></ul><li><a href='Revealjs.html'>Revealjs</a><li><a href='Python.html'>Python</a><li class='has-children'><a href='Examples.html'>Examples</a><ul class='dropdown'><li><a href='w5_1.html'>w5_1</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='9499.html'>9499</a><li><a href='9500.html'>9500</a></li></ul><li class='has-children'><a href='Brython.html'>Brython</a><ul class='dropdown'><li><a href='Pyodide3.html'>Pyodide3</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='9499.html'>Next</a> >> 9499<br /><h1>Projects</h1>
+<p><a href="https://flask.palletsprojects.com/en/stable/">Flask</a> + <a href="https://brython.info/">Brython</a> (<a href="https://mde.tw/cp2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/fa7d2a68d1569596f62e5b7739a83119/raw/d1f7266329c2e18800c236f8c639b1de0317a591/cp_w4_robot_animation.py">robot_lib.py</a>) + <a href="https://docs.peewee-orm.com/en/latest/">Peewee</a> + <a href="https://sqlite.org/">SQLite</a> (<a href="https://www.mysql.com/">MySQL</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>)</p>
+<p><a href="./../downloads/brython_proj_stage1.7z">brython_proj_stage1.7z</a></p>
+<p><a href="./../downloads/brython_proj.7z">brython_proj.7z</a></p>
+<p><a href="./../downloads/db_browser.7z.001">db_browser.7z.001</a></p>
+<p><a href="./../downloads/db_browser.7z.002">db_browser.7z.002</a></p>
+<p><a href="./../downloads/db_browser.7z.003">db_browser.7z.003</a></p>
+<p>取得 Ubuntu 操作系統上的帳號: <a href="https://s5.eng.nfu.edu.tw:9500">https://s5.eng.nfu.edu.tw:9500</a> </p>
+<p>線上 Brython 程式環境: <a href="https://s5.eng.nfu.edu.tw:9499/">https://s5.eng.nfu.edu.tw:9499/</a> </p>
+<p><img caption="false" height="394" src="./../images/cp_2025_project.png" width="500"/></p>
+<p>期末分組專案示範:</p>
+<p>從 <a href="https://s5.eng.nfu.edu.tw:9499/brython_test?load=432">https://s5.eng.nfu.edu.tw:9499/brython_test?load=432</a> 簡單的瀏覽器前端程式，延伸至 <a href="https://github.com/mdecycu/cp_final_ex">https://github.com/mdecycu/cp_final_ex</a> </p>
+<p>w14-w18: Python (Flask)，Brython，Peewee (ORM)，SQLite</p>
+<p style="padding-left: 30px;">Brython 程式環境: </p>
+<p style="padding-left: 60px;"><a href="https://s5.eng.nfu.edu.tw:9499/">https://s5.eng.nfu.edu.tw:9499/</a> (部署到 Linux)</p>
+<p style="padding-left: 60px;"><a href="https://github.com/mdecycu/brython_proj">https://github.com/mdecycu/brython_proj</a> (原始碼)</p>
+<p style="padding-left: 30px;">英雄榜: </p>
+<p style="padding-left: 60px;"><a href="https://s5.eng.nfu.edu.tw:9498/">https://s5.eng.nfu.edu.tw:9498/</a> (部署到 Linux)</p>
+<p style="padding-left: 60px;"><a href="https://github.com/mdecycu/cp_final_ex">https://github.com/mdecycu/cp_final_ex</a> (原始碼)</p>
+<p style="padding-left: 60px;">如何修改:</p>
+<p style="padding-left: 90px;">憤怒鳥與三隻小豬 (用投石器擊潰小豬房舍得分)</p>
+<p style="padding-left: 90px;"><a href="./../downloads/angrybird_stage1.7z">angrybird_stage1.7z</a></p>
+<p style="padding-left: 90px;"><a href="./../downloads/angrybird_stage2.7z">angrybird_stage2.7z</a></p>
+<p style="padding-left: 90px;"><a href="https://s5.eng.nfu.edu.tw:9497/">https://s5.eng.nfu.edu.tw:9497/</a> (部署到 Linux)</p>
+<p style="padding-left: 90px;"><a href="https://github.com/mdecycu/angrybird">https://github.com/mdecycu/angrybird</a> (原始碼)</p>
+<p style="padding-left: 90px;">投籃比賽 (投球機構分別投出隨機重量，不同距離的籃框得分)</p>
+<hr/>
+<p>怒鳥 x 三隻小豬<br/><br/>除了「擊潰房舍」之外，可以加入：<br/><br/>1. 破壞效率得分（工程能量概念）<br/><br/>玩家使用的拉距（向量長度）越短 → 分數係數越高<br/><br/>使用最少的彈射能量達成破壞 → 類似「最節能工程師獎」<br/><br/>2. 不同材料的建築（教育點：剛性 vs 韌性）<br/><br/>房舍材料可隨機或逐關：<br/><br/>木材（易斷）<br/><br/>磚塊（堅硬但脆）<br/><br/>鋼材（高強度但難破壞）<br/><br/>泡綿（吸能而不倒）<br/><br/>→ 玩家要學會調整發射角度與力量，才能找出 最佳撞擊點。<br/><br/>3. 加入風（向量合力）<br/><br/>像高級關卡：<br/><br/>加風向（顯示箭頭）<br/><br/>讓發射軌跡被偏移<br/><br/>玩家必須考慮：<br/>合力 = 發射向量 + 風力向量<br/><br/>4. 建築結構弱點（破壞力學示意）<br/><br/>目標房舍可以加入「弱點」：<br/><br/>連接點<br/><br/>支撐柱<br/><br/>重心<br/><br/>若玩家擊中弱點 →額外得分<br/>讓玩家學到結構力學的基本原理。<br/><br/>5. 多種彈射球（材料力學教育）<br/><br/>重球（高動能）<br/><br/>軟球（不易破壞）<br/><br/>彈力球（反彈後可二段攻擊）<br/><br/>粗糙球（撞擊後不滑動）<br/><br/>B. 投籃比賽（加入工程機構 + 隨機重量系統）<br/><br/>你提出的「投球機構投出不同重量球、不同距離有不同分數」很棒，還可以加入：<br/><br/>1. 球重量隨機 → 玩家需調整角度+力道（向量概念）<br/><br/>例如：<br/><br/>輕球 → 飛得遠<br/><br/>重球 → 掉得快<br/><br/>可以在畫面顯示：<br/><br/>球重量圖示<br/><br/>建議「速度 vs 角度」提示（教育內容）<br/><br/>2. 風阻 / 空氣阻力（速度衰減）<br/><br/>讓玩家體驗阻力方程式的效果，但以簡化版呈現：<br/><br/>vx *= 0.98<br/>vy *= 0.98<br/><br/>3. 多籃框、不同角度與高度（工程射擊設計）<br/><br/>偏左、偏右<br/><br/>高籃框（需要更大角度）<br/><br/>移動籃框（反應力學+預判）<br/><br/>4. 多種投球機構（遊戲可玩性 up）<br/><br/>玩家可選：<br/><br/>彈射器<br/><br/>彈弓<br/><br/>壓縮彈簧槍（力學公式：E=1/2 kx²）<br/><br/>空壓投球器（可加入空壓示意）<br/><br/>不同機構對應不同的「力量來源」。<br/><br/>5. 連續 combo（操作技巧提升）<br/><br/>如果玩家：<br/><br/>連續命中 2 次 → 力量誤差加倍<br/><br/>連續命中 3 次 → 投射準心變大<br/><br/>增加競技性。<br/><br/>C. 其他可行的類憤怒鳥 + 工程力學遊戲設計<br/><br/>以下是你可以加入到平台中的新遊戲模式（同樣用滑鼠操作、輕量向量力學）：<br/><br/>1. 工程投射擂台（向量角度 + 能量優化）<br/><br/>玩家需要讓球落在指定「工程目標區」內：<br/><br/>Zone A：高角度反射<br/><br/>Zone B：低速度精準<br/><br/>Zone C：滑行距離最長<br/><br/>教育點：<br/><br/>投射角影響水平距離<br/><br/>滑動與摩擦力概念<br/><br/>動能 → 滑行距離<br/><br/>2. 拆除工程師（精準點破壞）<br/><br/>像破壞磚塊遊戲：<br/><br/>結構內有多個節點（Nodes）<br/><br/>玩家選擇用多少「力」攻擊哪個節點<br/><br/>物理反應可能是：<br/><br/>破壞後塔倒塌<br/><br/>重心偏移後自己崩壞（很爽 XD）<br/><br/>教育點：<br/><br/>結構剛度<br/><br/>最佳攻擊點<br/><br/>3. 拋射運輸系統（控制角度搬運物體）<br/><br/>玩家射出小車/小球，要把它送到指定平台：<br/><br/>過低會掉下去<br/><br/>過高會撞到障礙<br/><br/>太快會彈飛<br/><br/>有點像「工程跨越」的概念。<br/><br/>4. 風場拋物線（合力可視化）<br/><br/>畫面中有風力場（用箭頭表示）<br/>玩家射出的球會被風帶走。<br/><br/>可加入：<br/><br/>升力版本（像紙飛機飛更遠）<br/><br/>下沉區（重力場）<br/><br/>教育點：<br/>合力向量 F = ΣFi<br/><br/>5. 彈射賽車（速度向量 + 碰撞）<br/><br/>玩家用彈弓把車射出去，<br/>看誰滑得最遠。<br/><br/>加入：<br/><br/>地面摩擦分區<br/><br/>沙地、冰塊、水坑<br/><br/>彈跳坡道（動能 → 位能 → 動能）<br/><br/>D. 其他功能：<br/>排行榜<br/>回放（儲存向量→重播）<br/>限時賽（最短時間通過關卡）<br/>最少能量（拉最短的距離破壞）<br/>每日挑戰（隨機風 + 隨機重量）</p><br />w10 << <a href='w10.html'>Previous</a> <a href='9499.html'>Next</a> >> 9499</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

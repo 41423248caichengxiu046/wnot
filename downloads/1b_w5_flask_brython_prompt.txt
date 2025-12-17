@@ -1,0 +1,74 @@
+請利用python flask 將下列程式改寫為網際程式, 前端使用 Brython, 後端使用 Flask, 讓使用者可以直接用下拉式表單選擇 1a_stud_list.csv,1b_stud_list.csv, 2a_stud_list.csv, 2b_stud_list.csv, 以便從 list 目錄中讀取所選定的學員名單檔案, 接著則設法讓學員上傳 teams 出席學員名單, 例如: 1b_w5.csv, 最後可以透過資料比對, 直接在網頁 div 標註 id 為 output 的地方, 分別列出當天出席學員學號, 以及沒有登入 teams 的學員學號列表. 以下為單機處理的現有程式碼: # pip install pandas
+import pandas as pd
+
+# 讀取 CSV 檔案（假設編碼為 utf-8）
+df = pd.read_csv("1b_stud_list.csv", encoding='utf-8')
+
+# 刪除第一列資料（如果還沒刪除）
+# df = df.drop(index=0)  # 如果你還沒刪除第一列，這行可以啟用
+
+# 只根據第一欄（位置索引 0）進行去重
+df_unique = df.drop_duplicates(subset=[df.columns[0]])
+
+# 將結果轉換為數列（第一欄的數據）
+names_list = df_unique.iloc[:, 0].tolist()  # 使用 iloc 來選取第一欄
+
+# 顯示結果
+#print(names_list)
+
+# 1逐一讀取數列內容
+#print(len(names_list))
+list_length = len(names_list)
+
+a_dict = {}
+num_list = []
+for i in range(list_length):
+    # 逐一透過\t 將資料切開
+    # 只取第一段資料，應該就是出席學員姓名
+    # 因為有重複資料，因此必須刪除重複資料
+    #print(names_list[i].split('\t')[0], names_list[i].split('\t')[1])
+    a_dict[names_list[i].split('\t')[1]] = names_list[i].split('\t')[0]
+    num_list.append(names_list[i].split('\t')[0])
+    # 設法將學員姓名與學號做成一個 dict
+    # 當之後逐一列出出席學員姓名時
+    # 透過查學員姓名與學號組成的字典, 就可以取得其學號
+# 已經完成 a_dict 字典製作
+#print(a_dict)
+print(num_list)
+
+# 以下利用 pandas 讀取出席人員名單
+import pandas as pd
+
+# 讀取 CSV 檔案（假設編碼為 utf-16）
+df = pd.read_csv("1b_w5.csv", encoding='utf-16') 
+df_unique = df.drop_duplicates(subset=[df.columns[0]])
+showup_list = df_unique.iloc[:, 0].tolist() 
+# 建立一個空集合
+unique_names = set() 
+# 逐一讀取數列內容
+for name in showup_list:
+    showup_name = name.split('\t')[0]
+    unique_names.add(showup_name)
+#print(unique_names)
+# 將集合轉為數列
+names = list(unique_names)
+# 建立一個空數列
+number = []
+for i in range(len(names)):
+    # 因為其中有人並沒有學號
+    try:
+        showup_num = a_dict[names[i]]
+        number.append(showup_num)
+    except:
+        pass
+
+sorted_list = sorted(number)
+#print(sorted_list)
+for i in range(len(sorted_list)):
+    print(i+1, sorted_list[i])
+
+print("缺席學員如下:")
+for i in range(len(num_list)):
+    stud_num = num_list[i]
+    if stud_num not in sorted_list:
+        print(stud_num)

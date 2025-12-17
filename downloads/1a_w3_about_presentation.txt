@@ -1,0 +1,64 @@
+w3 presentation topic
+
+練習:
+
+從  1 累加到 100 只加偶數, 總數多少?
+從  1 累加到 100 只加偶數, 但數字不能有 "3", 總數多少?
+能不能讓 robot 以爬階梯的方式從左下角, 往上爬到最高點?
+若之後的場景內容是根據一個 json 檔案進行設定, 這裡所謂的 json 可能包含 wall, carrot, 此 json 檔案應該如何設定?
+
+用甚麼工具 present?
+如何安排 present 流程?
+準備 present 的過程，有沒有歷程記錄?
+哪一些 present 內容是由誰建立的? 甚麼時候建立的?
+如何儲存各組員在準備 present 過程中所衍生的檔案?
+
+參考資料:
+    reveal.js: https://revealjs.com/
+    pelican blog generator: https://getpelican.com/
+
+什麼是 git, GitHub, gist 與 cmsimde? 如何使用這些工具？為什麼要使用這些工具？ 
+
+動態模擬程式:
+
+from browser import document, html, timer
+  
+canvas = html.CANVAS(width=400, height=400)
+brython_div = document["brython_div1"]
+brython_div <= canvas
+ctx = canvas.getContext("2d")
+  
+def draw_grid():
+    ctx.clearRect(0, 0, 400, 400)
+    ctx.strokeStyle = "#ccc"
+    ctx.lineWidth = 1
+    for i in range(0, 401, 40):
+        ctx.beginPath()
+        ctx.moveTo(i, 0)
+        ctx.lineTo(i, 400)
+        ctx.stroke()
+        ctx.beginPath()
+        ctx.moveTo(0, i)
+        ctx.lineTo(400, i)
+        ctx.stroke()
+     
+    # 畫出邊界
+    ctx.strokeStyle = "black"
+    ctx.lineWidth = 2
+    ctx.strokeRect(0, 0, 400, 400)
+ 
+def draw_robot(x, y):
+    draw_grid()
+    ctx.fillStyle = "blue"
+    ctx.beginPath()
+    ctx.arc(x * 40 + 20, y * 40 + 20, 15, 0, 6.28)
+    ctx.fill()
+ 
+x, y = 0, 0
+def move():
+    global x
+    x = (x + 1) % 10
+    draw_robot(x, y)
+ 
+draw_grid()
+timer.set_interval(move, 500)

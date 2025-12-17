@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程式碼清單</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f6f9; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; vertical-align: top; }
+        th { background: #e9ecef; }
+        .btn-load { background: #007bff; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; font-size: 13px; }
+        .btn-load:hover { background: #0056b3; }
+        .pagination { margin-top: 20px; }
+        .pagination a { margin: 0 5px; padding: 8px 12px; background: #007bff; color: white; text-decoration: none; border-radius: 4px; }
+        .pagination a.disabled { background: #ccc; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <h2>已儲存程式碼</h2>
+    <p><a href="{{ url_for('brython_test') }}">返回編輯器</a></p>
+
+    <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>時間</th>
+            <th>使用者</th>
+            <th>程式碼預覽</th>
+            <th>備註</th>
+            <th>程式說明</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for program in programs %}
+        <tr>
+            <td>{{ program.id }}</td>
+            <td>{{ program.time.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>{{ program.user.account }}</td>
+            <td><code style="font-size:12px; white-space: pre-wrap;">{{ program.brython | replace('\n', ' ') | truncate(120, True) | e }}</code></td>
+            <td>{{ program.memo or '' }}</td>
+            <td>{{ program.desp or '' }}</td>
+            <td>
+                <!-- 關鍵：使用 ?load=ID 觸發自動載入 -->
+                <a href="{{ url_for('brython_test') }}?load={{ program.id }}">
+                    <button class="btn-load">載入</button>
+                </a>
+            </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="7" style="text-align:center;">尚未儲存任何程式</td></tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <div style="text-align: center; margin-top: 20px; font-size: 14px;">
+        {% if has_prev %}
+            <a href="{{ url_for('programs', page=page-1) }}"
+               style="margin:0 3px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#333;">上一頁</a>
+        {% endif %}
+
+        {% set max_buttons = 7 %}
+        {% set start_page = [1, page - (max_buttons // 2)] | max %}
+        {% set end_page = [total_pages, start_page + max_buttons - 1] | min %}
+        {% if end_page - start_page + 1 < max_buttons %}
+            {% set start_page = [1, end_page - max_buttons + 1] | max %}
+        {% endif %}
+
+        {% for i in range(start_page, end_page + 1) %}
+            {% if i == page %}
+                <strong style="margin:0 3px;padding:6px 10px;background:#007bff;color:white;border-radius:4px;">{{ i }}</strong>
+            {% else %}
+                <a href="{{ url_for('programs', page=i) }}"
+                   style="margin:0 3px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#007bff;">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if has_next %}
+            <a href="{{ url_for('programs', page=page+1) }}"
+               style="margin:0 3px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#333;">下一頁</a>
+        {% endif %}
+    </div>
+</body>
+</html>

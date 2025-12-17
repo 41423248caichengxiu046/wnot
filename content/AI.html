@@ -1,0 +1,213 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cp_demo</title>
+        <meta charset="utf-8">
+<meta property="head" content="H2">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cp demo</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cp demo</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='AI.html'>AI</a></li></ul><li><a href='Revealjs.html'>Revealjs</a><li><a href='Python.html'>Python</a><li class='has-children'><a href='Examples.html'>Examples</a><ul class='dropdown'><li><a href='w5_1.html'>w5_1</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='9499.html'>9499</a><li><a href='9500.html'>9500</a></li></ul><li class='has-children'><a href='Brython.html'>Brython</a><ul class='dropdown'><li><a href='Pyodide3.html'>Pyodide3</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='Revealjs.html'>Next</a> >> Revealjs<br /><h1>AI</h1>
+<p><a href="https://link.springer.com/book/10.1007/978-3-032-09008-9">Let's talk AI</a></p>
+<p>In observing the numerous discussions about the rapid advancement of artificial intelligence (AI), it is clear that while there is much sharing of ideas, in fact true collaboration, challenging concepts, and alignment is rare. We still operate in silos. Given the critical, pervasive, and revolutionary nature of AI, it is vital that we move forward carefully, holistically, and collaboratively to ensure that our decisions and progress are deliberate and well-considered.</p>
+<p>在觀察有關人工智慧（AI）快速發展的諸多討論時，我們可以明顯看到，雖然有許多思想的交流，但實際上，真正的合作、挑戰性的觀念以及協調仍然很少。我們依然處於各自為政的狀態。鑒於人工智慧的關鍵性、普遍性和革命性質，我們<span style="background-color: #ccffcc;">必須謹慎、全面並協同前進</span>，確保我們的決策和進展是經過深思熟慮且周詳的。</p>
+<p>This book presents interdisciplinary dialogues on artificial intelligence, all derived from the same semi-structured interview format. These interviews were conducted with the goal of uncovering opportunities for collaboration, identifying gaps, and exploring the multiple meanings and perceptions attached to commonly used terms in the field of AI.</p>
+<p>本書呈現了關於人工智慧的跨學科對話，所有對話皆源自相同的半結構化訪談格式。這些訪談的目的是<span style="background-color: #ccffcc;">揭示合作的機會、識別存在的空白，並探索在人工智慧領域中，對常用術語所附加的多重意涵與不同看法</span>。</p>
+<p>Here we explain the definitions used in the interviews. We observed a wide range of opinions. This variance in the views of experts may stem from their focus on different aspects of AI, their interpretations of key terms, or their perspectives on the consequences and mechanisms involved.<br/>To provide clearer insights into these differences, we decided to open the interview chapters with the interpretations each expert has on key terms. The approach is not meant to offer a uniform understanding but it allows readers to interpret the experts’ answers in the light of their intended meanings and definitions.</p>
+<p>Here we justify the key terms selected:</p>
+<p>在此，我們解釋了訪談中所使用的定義。我們觀察到有著各種不同的觀點。這些<span style="background-color: #ccffcc;">專家的觀點差異可能來自於他們對人工智慧的不同關注重點、對關鍵術語的詮釋，或是他們對相關後果和機制的理解與看法</span>。<br/><br/>為了能更清楚地呈現這些差異，我們決定在每一章的訪談部分開頭，介紹每位專家對關鍵術語的詮釋。這種做法並非旨在提供一個統一的理解，而是讓讀者能夠在專家所表達的意圖與定義下解讀他們的回答。<br/><br/>接下來，我們將對所選擇的關鍵術語進行解釋：</p>
+<p>Artificial Intelligence – While everyone is familiar with AI, perceptions of what it entails can vary widely. In scientific research, a clear definition of AI is crucial for overall interpretation. Since there is no universally agreed upon definition, each interviewee was invited to provide their personal interpretation.</p>
+<p>人工智慧 – 雖然每個人<span style="background-color: #ccffcc;">對人工智慧</span>（AI）都有所了解，但對其內涵的看法可能差異很大。在科學研究中，對人工智慧的明確定義對於整體解讀至關重要。由於<span style="background-color: #ccffcc;">目前並沒有普遍公認的定義</span>，我們邀請每位受訪者提供他們對人工智慧的個人詮釋。</p>
+<p>The biggest differences between AI and other technologies are, in a nutshell:</p>
+<p>Power – AI has capabilities that surpass any previous technology, performing complex and diverse tasks that often exceed human capabilities. As AI evolves, it requires less and less deliberate and conscious effort to reach new levels of creativity. This ease of development, combined with AI’s ability to continually surprise us with emerging properties, sets it apart from past innovations.</p>
+<p>Versatility – AI’s adaptability across multiple sectors, from healthcare to finance and manufacturing, demonstrates its unprecedented versatility. While there are many dedicated AI systems, there are also increasingly many that bridge domains and tasks, amplifying their impact on society as they reach millions of users. This interconnectedness allows AI to (unconsciously) shape thoughts, actions, and outcomes at scale, further underscoring its powerful impact.</p>
+<p>Autonomy – Perhaps most importantly, AI can operate with minimal human oversight, capable of making decisions and performing tasks independently. While we are amazed by its functionality, our understanding of why and how it works remains limited. This opacity, even for leading experts, complicates the relationship between AI and its users.</p>
+<p>人工智慧與其他技術的最大區別，簡而言之有以下幾點：</p>
+<p>功能 – 人工智慧擁有<span style="background-color: #ccffcc;">超越以往任何技術的能力</span>，能執行複雜且多樣的任務，這些任務往往超越了人類的能力範疇。隨著人工智慧的發展，它所需的有意識和刻意努力越來越少，便能達到新的創造力層次。這種發展的輕鬆性，加上人工智慧不斷以出乎意料的新特性驚訝我們，將其與過去的創新技術區別開來。</p>
+<p>多樣性 – 人工智慧在多個領域的適應性，<span style="background-color: #ccffcc;">從醫療到金融，再到製造業，展示了其前所未有的多樣性</span>。雖然有許多專門的人工智慧系統，但也有越來越多的系統跨越領域和任務，隨著它們觸及數百萬用戶，進一步放大了對社會的影響。這種互聯性使得人工智慧能在無意識中（或至少無需直接干預）大規模地影響思想、行為和結果，進一步凸顯了其強大的影響力。</p>
+<p>自主性 – 也許最重要的是，<span style="background-color: #ccffcc;">人工智慧能在最小的人類監督下運作，能夠獨立做出決策並執行任務</span>。儘管我們對它的功能感到驚訝，但我們<span style="background-color: #ccffcc;">對它運作的原因和方式仍然了解有限</span>。這種不透明性，即便對於領先的專家來說，也使人工智慧與使用者之間的關係變得複雜。</p><br />About << <a href='About.html'>Previous</a> <a href='Revealjs.html'>Next</a> >> Revealjs</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

@@ -1,0 +1,23 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <title>首頁</title>
+</head>
+<body>
+    <h2>歡迎來到機器人程式測試平台</h2>
+
+    <p>請選擇您想要執行的操作：</p>
+
+    <ul>
+        <li><a href="{{ url_for('register') }}">註冊新帳號</a></li>
+        <li><a href="{{ url_for('login') }}">登入</a></li>
+        <li><a href="{{ url_for('logout') }}">登出</a></li>
+        <li><a href="{{ url_for('brython_test') }}">進行 Brython 程式測試</a></li>
+        <li><a href="{{ url_for('programs') }}">檢視已儲存的程式碼</a></li>
+    </ul>
+</body>
+</html>

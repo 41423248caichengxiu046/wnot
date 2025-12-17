@@ -1,0 +1,85 @@
+from browser import document, html, timer, bind, websocket
+
+# 每個格子的像素大小
+CELL_SIZE = 40
+
+# 牆壁厚度，用於圖片位置調整
+WALL_THICKNESS = 6
+
+# 牆壁與機器人圖片的來源路徑
+IMG_PATH = "https://mde.tw/cp2025/reeborg/src/images/"
+
+# --- WebSocket ADDITION ---
+# Replace with your actual WebSocket server address
+WS_SERVER_URL = "ws://localhost:8765"
+
+try:
+    ws = websocket.WebSocket(WS_SERVER_URL)
+
+    @ws.bind("open")
+    def on_open(evt):
+        print("WebSocket connection opened")
+
+    @ws.bind("message")
+    def on_message(evt):
+        data = evt.data
+        print(f"📨 Received from WebSocket: {data}")
+        if data == "move":
+            r.move(1)
+        elif data == "turn":
+            r.turn_left()
+
+    @ws.bind("close")
+    def on_close(evt):
+        print("WebSocket closed")
+
+    @ws.bind("error")
+    def on_error(evt):
+        print("WebSocket error:", evt)
+
+except Exception as e:
+    print("WebSocket connection failed:", e)
+
+# --- World / Robot classes (no change) ---
+# [... YOUR EXISTING World and AnimatedRobot classes go here ...]
+
+# --- 主程式：建立地圖與機器人 ---
+w = World(10, 10)
+w.robot(1, 1)
+r = AnimatedRobot(w, 1, 1)
+
+# --- Local keyboard control (still supported) ---
+@bind(document, "keydown")
+def keydown(evt):
+    if evt.key == "j":
+        r.move(1)
+        # --- WebSocket ADDITION ---
+        if ws and ws.readyState == 1:
+            ws.send("move")
+    elif evt.key == "i":
+        r.turn_left()
+        # --- WebSocket ADDITION ---
+        if ws and ws.readyState == 1:
+            ws.send("turn")
+
+# --- Local button control ---
+@bind(document["move_button"], "click")
+def move_click(evt):
+    r.move(1)
+    if ws and ws.readyState == 1:
+        ws.send("move")
+
+@bind(document["turn_button"], "click")
+def turn_click(evt):
+    r.turn_left()
+    if ws and ws.readyState == 1:
+        ws.send("turn")
+
+# 初始自動巡邏路線（可移除）
+r.move(9)
+r.turn_left()
+r.move(9)
+r.turn_left()
+r.move(9)
+r.turn_left()
+r.move(9)

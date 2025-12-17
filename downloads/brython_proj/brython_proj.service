@@ -1,0 +1,14 @@
+[Unit]
+Description=Brython Project
+After=network.target
+
+[Service]
+User=pj2022
+WorkingDirectory=/home/pj2022/brython_proj
+ExecStart=/home/pj2022/brython_proj/cpvenv/bin/python3 /home/pj2022/brython_proj/server.py
+Restart=always
+Environment=PATH=/home/pj2022/brython_proj/cpvenv/bin:/usr/bin:/bin
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

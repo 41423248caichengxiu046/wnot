@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brython + Ace 機器人編輯器</title>
+
+    <!-- Brython -->
+    <script src="{{ url_for('static', filename='brython.js') }}"></script>
+    <script src="{{ url_for('static', filename='brython_stdlib.js') }}"></script>
+
+    <!-- Ace Editor -->
+    <script src="{{ url_for('static', filename='ace/ace.js') }}"></script>
+    <script src="{{ url_for('static', filename='ace/ext-language_tools.js') }}"></script>
+    <script src="{{ url_for('static', filename='ace/mode-python.js') }}"></script>
+    <script src="{{ url_for('static', filename='ace/snippets/python.js') }}"></script>
+    <script src="{{ url_for('static', filename='ace/FileSaver.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='ace/filereader.js') }}"></script>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f6f9; }
+        .container { display: flex; gap: 20px; flex-wrap: wrap; }
+        .panel { flex: 1; min-width: 300px; }
+        #kw_editor1 { height: 400px; border: 1px solid #ddd; }
+        #brython_div1 { height: 400px; border: 2px solid #007bff; background: #fff; overflow: auto; }
+        .controls { margin: 10px 0; }
+        button { padding: 8px 16px; margin: 5px; font-size: 14px; border: none; border-radius: 4px; cursor: pointer; }
+        .btn-run { background: #28a745; color: white; }
+        .btn-save { background: #007bff; color: white; }
+        .btn-example { background: #17a2b8; color: white; }
+        textarea#kw_console1 { width: 100%; height: 120px; font-family: monospace; }
+        textarea#program_desc { width: 100%; height: 60px; margin-top: 5px; }
+    </style>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+<body>
+
+<h1>機器人程式編輯器</h1>
+<p>
+    <a href="{{ url_for('logout') }}">登出</a> |
+    <a href="{{ url_for('programs') }}">查看儲存程式</a>
+</p>
+<span id="search_toggle" style="color:#0066cc;cursor:pointer;text-decoration:underline;">程式查詢</span>
+
+<!-- 查詢面板 -->
+<div id="search_panel" style="display:none;margin:15px 0;padding:15px;background:#f9f9f9;border:1px solid #ddd;border-radius:6px;">
+    <form id="search_form" style="margin-bottom:10px;">
+        <input type="text" id="search_query"
+               placeholder="搜尋：帳號、程式碼、來源、備註、說明"
+               style="width:380px;padding:8px;font-size:14px;border:1px solid #ccc;border-radius:4px;">
+        <button type="submit" style="padding:8px 16px;background:#007bff;color:white;border:none;border-radius:4px;cursor:pointer;margin-left:5px;">搜尋</button>
+        <button type="button" id="search_close" style="padding:8px 16px;background:#6c757d;color:white;border:none;border-radius:4px;cursor:pointer;margin-left:5px;">關閉</button>
+    </form>
+    <div id="search_results"></div>
+</div>
+
+<div class="container">
+    <div class="panel">
+        <h3>程式碼編輯區</h3>
+        <div id="kw_editor1"></div>
+        <div class="controls">
+            <button id="kw_run1" class="btn-run">執行程式</button>
+            <button id="kw_save_db" class="btn-save">存入資料庫</button>
+            <button id="kw_clear_console1">清除輸出</button>
+            <button id="clear_bd1">清除畫布</button>
+            <button onclick="window.location.reload()">重新載入</button>
+        </div>
+        <form>
+            <label>檔名: <input id="kw_filename1" value="robot">.py</label>
+            <button type="button" onclick="doSave('kw_py_src1', 'kw_filename1')">下載程式</button>
+        </form>
+        <div style="margin-top: 10px;">
+            <button class="btn-example" id="example1">範例：print 測試</button>
+            <button class="btn-example" id="example2">範例：畫方形</button>
+            <button class="btn-example" id="example3">範例：自由行走</button>
+        </div>
+        <div class="controls">
+            <label for="program_desc">程式說明:</label>
+            <textarea id="program_desc" placeholder="請輸入程式說明（將與程式一起儲存）"></textarea>
+        </div>
+    </div>
+    <div class="panel">
+        <h3>執行畫面</h3>
+        <div id="brython_div1"></div>
+        <h3>輸出結果</h3>
+        <textarea id="kw_console1" readonly>準備執行...</textarea>
+    </div>
+</div>
+
+<!-- === Brython Python 程式區 === -->
+<script type="text/python3">
+import sys
+import time
+import traceback
+from browser import document as doc, window, html
+
+class cOutput:
+    def __init__(self, target):
+        self.target = doc[target]
+    def write(self, data):
+        self.target.value += str(data)
+
+class Editor:
+    def __init__(self, editor_id, console_id, container_id, storage_id):
+        self.editor_id = editor_id
+        self.console_id = console_id
+        self.container_id = container_id
+        self.storage_id = storage_id
+        try:
+            self.editor = window.ace.edit(self.editor_id)
+            session = self.editor.getSession()
+            session.setMode("ace/mode/python")
+            self.editor.setOptions({
+                'enableLiveAutocompletion': True,
+                'enableSnippets': True,
+                'highlightActiveLine': False,
+                'highlightSelectedWord': True,
+                'autoScrollEditorIntoView': True,
+                'maxLines': 30,
+                'fontSize': '13px'
+            })
+        except:
+            self.editor = html.TEXTAREA(rows=20, cols=70)
+            doc[self.editor_id] <= self.editor
+            def get_value(): return self.editor.value
+            def set_value(x): self.editor.value = x
+            self.editor.getValue = get_value
+            self.editor.setValue = set_value
+
+    def run(self):
+        sys.stdout = cOutput(self.console_id)
+        sys.stderr = cOutput(self.console_id)
+        doc[self.console_id].value = ''
+        src = self.editor.getValue()
+        if hasattr(window, 'localStorage') and self.storage_id:
+            window.localStorage[self.storage_id] = src
+        t0 = time.perf_counter()
+        try:
+            exec(src, {'__name__': self.editor_id})
+            state = 1
+        except Exception as e:
+            traceback.print_exc(file=sys.stderr)
+            state = 0
+        print(f'<completed in {(time.perf_counter() - t0)*1000:.2f} ms>')
+        return state
+
+    def clear_console(self, ev=None):
+        doc[self.console_id].value = ""
+
+    def clear_container(self, ev=None):
+        doc[self.container_id].clear()
+
+# 初始化編輯器
+Ace = Editor("kw_editor1", "kw_console1", "brython_div1", "kw_py_src1")
+
+# === 關鍵修正：不要覆蓋 JS 載入的內容 ===
+current_code = Ace.editor.getValue().strip()
+if not current_code or current_code.startswith('# Brython 機器人程式') or len(current_code) < 50:
+    # 只有在「無內容」或「預設範例」時才載入預設程式
+    default_code = '''# Brython 機器人程式
+# 範例：移動機器人
+# from robot_lib import World, AnimatedRobot
+#
+# w = World(10, 10)
+# robot = AnimatedRobot(w, 5, 5)
+# robot.move(3)
+'''
+    Ace.editor.setValue(default_code)
+
+Ace.editor.gotoLine(1)
+
+# 執行程式
+def run_code(ev):
+    doc['kw_console1'].value = "執行中...\n"
+    Ace.clear_container()
+    Ace.run()
+
+doc['clear_bd1'].bind('click', Ace.clear_container)
+doc['kw_clear_console1'].bind('click', Ace.clear_console)
+doc['kw_run1'].bind('click', run_code)
+
+# === 範例載入 ===
+examples = {
+    'example1': '''print("Hello Brython!")\nprint("這是範例一")\nprint(1+2+3)''',
+    'example2': '''from robot_lib import World, AnimatedRobot\n\nw = World(10, 10)\nr = AnimatedRobot(w, 5, 5)\nfor _ in range(4):\n r.move(3)\n r.turn_left()''',
+    'example3': '''from robot_lib import World, AnimatedRobot\nimport random\n\ndef turn_right(r):\n for _ in range(3): r.turn_left()\n\nw = World(12, 12)\nr = AnimatedRobot(w, 1, 1)\nfor _ in range(50):\n r.move(1)\n if random.random() > 0.7:\n r.turn_left()\n elif random.random() > 0.4:\n turn_right(r)'''
+}
+for eid, code in examples.items():
+    def load_example(ev, c=code):
+        Ace.editor.setValue(c)
+        Ace.editor.gotoLine(1)
+    doc[eid].bind('click', load_example)
+</script>
+
+<!-- === JavaScript 區塊：存檔 + 查詢 + 自動載入 === -->
+<script type="text/javascript">
+// 存檔到資料庫
+function save_code_to_db() {
+    const console = document.getElementById('kw_console1');
+    const description = document.getElementById('program_desc').value.trim();
+    const code = ace.edit("kw_editor1").getValue().trim();
+    if (!code) {
+        console.value += "錯誤：程式碼不能為空。\n";
+        return;
+    }
+    console.value += "正在儲存程式與說明...\n";
+    fetch('/save_program', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            brython_code: code,
+            desp: description || null
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.message) {
+            console.value += data.message + "\n";
+            if (data.desp) console.value += "儲存的說明: " + data.desp + "\n";
+            const btn = document.getElementById('kw_save_db');
+            btn.style.opacity = '0.6';
+            setTimeout(() => btn.style.opacity = '1.0', 2000);
+        }
+    })
+    .catch(err => {
+        console.value += "儲存失敗: " + err.message + "\n";
+    });
+}
+
+// 下載檔案
+function doSave(storage_id, input_id) {
+    const code = localStorage[storage_id] || '';
+    const blob = new Blob([code], {type: "text/plain;charset=utf-8"});
+    const name = document.getElementById(input_id).value.trim() || 'robot';
+    saveAs(blob, name + ".py");
+}
+
+// 自動儲存到 localStorage
+setInterval(() => {
+    const editor = ace.edit("kw_editor1");
+    localStorage["kw_py_src1"] = editor.getValue();
+}, 1000);
+
+document.getElementById('kw_save_db').addEventListener('click', save_code_to_db);
+
+// 查詢面板
+document.getElementById('search_toggle').onclick = () => {
+    const p = document.getElementById('search_panel');
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+    if (p.style.display === 'block') document.getElementById('search_query').focus();
+};
+document.getElementById('search_close').onclick = () => {
+    document.getElementById('search_panel').style.display = 'none';
+};
+
+document.getElementById('search_form').onsubmit = e => {
+    e.preventDefault();
+    const q = document.getElementById('search_query').value.trim();
+    performSearch(q, 1);
+};
+
+function performSearch(q, page = 1) {
+    const div = document.getElementById('search_results');
+    div.innerHTML = '<p style="color:#666;">搜尋中...</p>';
+    fetch(`/search_programs?q=${encodeURIComponent(q)}&page=${page}`)
+        .then(r => r.json())
+        .then(data => {
+            if (!data.programs.length) {
+                div.innerHTML = '<p style="color:#999;">查無結果</p>';
+                return;
+            }
+            let html = `<table style="width:100%;border-collapse:collapse;font-size:13px;">
+                <thead style="background:#e9ecef;">
+                    <tr>
+                        <th style="text-align:left;padding:8px;border-bottom:2px solid #ddd;">時間</th>
+                        <th style="text-align:left;padding:8px;border-bottom:2px solid #ddd;">帳號</th>
+                        <th style="text-align:left;padding:8px;border-bottom:2px solid #ddd;">程式片段</th>
+                        <th style="text-align:left;padding:8px;border-bottom:2px solid #ddd;">來源</th>
+                        <th style="text-align:left;padding:8px;border-bottom:2px solid #ddd;">備註</th>
+                        <th style="text-align:left;padding:8px;border-bottom:2px solid #ddd;">說明</th>
+                        <th style="text-align:center;padding:8px;border-bottom:2px solid #ddd;">操作</th>
+                    </tr>
+                </thead><tbody>`;
+            data.programs.forEach(p => {
+                const snippet = p.brython_snippet.replace(/</g, '&lt;');
+                const memo = p.memo ? p.memo.replace(/</g, '&lt;') : '<em style="color:#aaa;">(無)</em>';
+                const desp = p.desp ? p.desp.replace(/</g, '&lt;') : '<em style="color:#aaa;">(無)</em>';
+                html += `<tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:8px;">${p.time}</td>
+                    <td style="padding:8px;">${p.account}</td>
+                    <td style="padding:8px;font-family:monospace;font-size:12px;white-space:pre-wrap;">${snippet}</td>
+                    <td style="padding:8px;">${p.from_where}</td>
+                    <td style="padding:8px;">${memo}</td>
+                    <td style="padding:8px;">${desp}</td>
+                    <td style="padding:8px;text-align:center;">
+                        <a href="/brython_test?load=${p.id}"
+                           style="color:#007bff;text-decoration:none;font-weight:bold;">
+                           載入
+                        </a>
+                    </td>
+                </tr>`;
+            });
+            html += `</tbody></table>`;
+            html += `<div style="margin-top:15px;text-align:center;font-size:14px;">`;
+            const max_buttons = 7;
+            let start_page = Math.max(1, data.page - Math.floor(max_buttons / 2));
+            let end_page = Math.min(data.total_pages, start_page + max_buttons - 1);
+            if (end_page - start_page + 1 < max_buttons) {
+                start_page = Math.max(1, end_page - max_buttons + 1);
+            }
+            if (data.has_prev) {
+                html += `<a href="javascript:performSearch('${q}',${data.page-1})"
+                         style="margin:0 3px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#333;">上一頁</a>`;
+            }
+            for (let i = start_page; i <= end_page; i++) {
+                if (i === data.page) {
+                    html += `<strong style="margin:0 3px;padding:6px 10px;background:#007bff;color:white;border-radius:4px;">${i}</strong>`;
+                } else {
+                    html += `<a href="javascript:performSearch('${q}',${i})"
+                             style="margin:0 3px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#007bff;">${i}</a>`;
+                }
+            }
+            if (data.has_next) {
+                html += `<a href="javascript:performSearch('${q}',${data.page+1})"
+                         style="margin:0 3px;padding:6px 10px;border:1px solid #ddd;border-radius:4px;text-decoration:none;color:#333;">下一頁</a>`;
+            }
+            html += `</div>`;
+            div.innerHTML = html;
+        })
+        .catch(err => {
+            div.innerHTML = `<p style="color:red;">載入失敗：${err.message}</p>`;
+        });
+}
+
+// === 自動載入程式碼 ===
+function autoLoadProgram(loadId) {
+    const status = document.createElement('div');
+    status.id = 'auto-load-status';
+    status.innerHTML = '載入程式碼中...';
+    status.style.cssText = 'position:fixed;top:15px;right:15px;background:#007bff;color:white;padding:12px 18px;border-radius:6px;z-index:9999;font-size:15px;box-shadow:0 4px 12px rgba(0,0,0,0.3);font-weight:bold;';
+    document.body.appendChild(status);
+
+    fetch(`/api/program/${loadId}`, {
+        credentials: 'include'
+    })
+    .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+    })
+    .then(data => {
+        if (data.error) throw new Error(data.error);
+        waitForAceEditor(editor => {
+            editor.setValue(data.brython || '', -1);
+            editor.gotoLine(1);
+            const desc = document.getElementById('program_desc');
+            if (desc) desc.value = data.desp || '';
+            status.innerHTML = '程式碼已自動載入！';
+            status.style.background = '#28a745';
+            history.replaceState(null, '', window.location.pathname);
+        }, status);
+    })
+    .catch(err => {
+        status.innerHTML = `載入失敗：${err.message}<br><button onclick="location.reload()" style="margin-top:5px;padding:3px 8px;font-size:12px;">重試</button>`;
+        status.style.background = '#dc3545';
+    })
+    .finally(() => {
+        setTimeout(() => document.getElementById('auto-load-status')?.remove(), 5000);
+    });
+}
+
+function waitForAceEditor(callback, status, attempts = 100) {
+    if (attempts === 0) {
+        status.innerHTML = '錯誤：編輯器載入失敗';
+        status.style.background = '#dc3545';
+        return;
+    }
+    try {
+        const editor = window.ace && window.ace.edit("kw_editor1");
+        if (editor && typeof editor.getValue === 'function') {
+            callback(editor);
+        } else {
+            setTimeout(() => waitForAceEditor(callback, status, attempts - 1), 100);
+        }
+    } catch (e) {
+        setTimeout(() => waitForAceEditor(callback, status, attempts - 1), 100);
+    }
+}
+
+// === 頁面載入完成：先 brython()，再自動載入 ===
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. 先執行 Brython 初始化
+    if (typeof brython === 'function') {
+        brython();
+    }
+
+    // 2. 再檢查 ?load=ID
+    const loadId = new URLSearchParams(window.location.search).get('load');
+    if (loadId) {
+        autoLoadProgram(loadId);
+    }
+});
+</script>
+
+</body>
+</html>

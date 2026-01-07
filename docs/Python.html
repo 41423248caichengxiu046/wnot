@@ -1,0 +1,570 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cp_demo</title>
+        <meta charset="utf-8">
+<meta property="head" content="H1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cp demo</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cp demo</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='AI.html'>AI</a></li></ul><li><a href='Revealjs.html'>Revealjs</a><li><a href='Python.html'>Python</a><li class='has-children'><a href='Examples.html'>Examples</a><ul class='dropdown'><li><a href='w5_1.html'>w5_1</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='9499.html'>9499</a><li><a href='9500.html'>9500</a></li></ul><li class='has-children'><a href='Brython.html'>Brython</a><ul class='dropdown'><li><a href='Pyodide3.html'>Pyodide3</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Revealjs << <a href='Revealjs.html'>Previous</a> <a href='Examples.html'>Next</a> >> Examples<br /><h1>Python</h1>
+<p><a href="https://github.com/mdecycu/python_2025/blob/main/%E7%AC%AC01%E8%AA%B2%EF%BC%9A%E5%88%9D%E8%AD%98Python.md">Python 程式教材</a> (中文)</p>
+<p>透過 <a href="https://mde.tw/cp2025/content/Robot_ex.html">https://mde.tw/cp2025/content/Robot_ex.html</a> 學習 Python 程式語法。</p>
+<p>Python 基本語法: <a href="https://link.springer.com/chapter/10.1007/978-3-031-90522-3_1">Python essential</a> (英文，只能在校網擷取)</p>
+<p>Python 變數宣告原則:</p>
+<p>在 Python 中，變數宣告（Variable Declaration）相較於其他語言（如 Java 或 C++）來得簡單，因為 Python 是動態型別語言。以下是 Python 宣告變數的原則與最佳實踐：</p>
+<p><span style="background-color: #ffff99;">一、不需明確指定型別</span></p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">Python 是動態型別語言，你不需要指定變數型別</span>，解譯器會根據賦值自動判斷。</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">x = 10        # 整數
+name = "Amy"  # 字串
+pi = 3.14     # 浮點數
+</pre>
+<p><span style="background-color: #ffff99;">二、變數名稱命名規則</span></p>
+<p style="padding-left: 30px;">合法命名：<br/><br/><span style="background-color: #ccffcc;">可以包含字母、數字、底線（_）</span><br/><br/><span style="background-color: #ccffcc;">不能以數字開頭</span><br/><br/><span style="background-color: #ccffcc;">不能使用 Python 保留的關鍵字(35個)</span>:</p>
+<p style="padding-left: 60px;">['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', '<span style="background-color: #ffcc99;">def</span>', 'del', 'elif', '<span style="background-color: #ffcc99;">else</span>', 'except', 'finally', '<span style="background-color: #ffcc99;">for</span>', 'from', 'global', '<span style="background-color: #ffcc99;">if</span>', '<span style="background-color: #ffcc99;">import</span>', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']</p>
+<p style="padding-left: 30px;">利用 keyword 模組，<a href="https://mde.tw/cp_demo/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/fa7d2a68d1569596f62e5b7739a83119/raw/da44925c2f9694f825c2525edfc80367f327ca5e/print_keywords.py">列出 Python 所保留的關鍵字</a>:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import keyword
+
+# 印出關鍵字清單
+print("Python 保留關鍵字有：")
+print(keyword.kwlist)
+
+# 印出總數
+print("\n關鍵字總數：", len(keyword.kwlist))</pre>
+<p><span style="background-color: #ffff99;">三、使用有意義的變數名稱</span></p>
+<p style="padding-left: 30px;">例如: grid_width = 10</p>
+<p><span style="background-color: #ffff99;">四、遵守 Python 命名慣例（<a href="https://peps.python.org/pep-0008/" style="background-color: #ffff99;">PEP 8</a>）</span></p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">小寫 + 底線 用於變數和函數名稱：total_price</span><br/><br/><span style="background-color: #ccffcc;">全大寫 用於常數：MAX_SIZE</span><br/><br/><span style="background-color: #ccffcc;">大駝峰式（PascalCase） 用於類別名稱：StudentProfile</span></p>
+<p><span style="background-color: #ffff99;">五、Python 變數名稱區分大小寫</span></p>
+<p style="padding-left: 30px;">length 與 Length 是兩個不同的變數名稱</p>
+<p><span style="background-color: #ffff99;">六、變數可重新指派不同型別（動態型別特性）</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">x = 100       # 整數
+x = "hello"   # 變成字串
+</pre>
+<p><span style="background-color: #ffff99;">七、可同時宣告多個變數（多重賦值）</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">a, b, c = 1, 2, 3
+x = y = z = 0  # 所有變數都為 0
+</pre>
+<p></p>
+<hr/>
+<p>有關 w3 簡報</p>
+<p><a href="./../downloads/1a_w3_about_presentation.txt">1a_w3_about_presentation.txt</a></p>
+<p>先處理<span style="background-color: #ccffcc;">奇數正方形網格區域</span>，讓機器人走過每一格: <a href="https://mde.tw/cp2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/fa7d2a68d1569596f62e5b7739a83119/raw/295cc3af8240aa9b88f9c3a36b676f71135023fa/for_odd_square_grid_area.py">執行結果</a>。</p>
+<p>針對<span style="background-color: #ccffcc;">長方形網格區域</span>，讓機器人也能走過每一格: <a href="https://mde.tw/cp2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/fa7d2a68d1569596f62e5b7739a83119/raw/37d7b11d9da66ce781e11372b601fac28f1ee279/for_any_rectangle_grid_area.py">執行結果</a>。</p>
+<hr/>
+<p>w3: 什麼是 git, GitHub, gist 與 cmsimde? 如何使用這些工具？為什麼要使用這些工具？</p>
+<hr/>
+<p>原始提問:<br/><br/>下個禮拜我們這一組有六位組員，被要求要上台報告有關計算機程式課程的學習心得，題目是:w3: 什麼是 git，GitHub，gist 與 cmsimde? 如何使用這些工具？為什麼要使用這些工具？, 上課時老師只稍微說明一下，但要我們自己找資料聯席，並且六人逐一上台報告心得， 請用大一新生的程度，幫我們這六位組員準備講稿,並且準備六個人分別要上台展示的指令及內容, 講稿請詳細解說, 並列出參考網站來源, 非常感謝。<br/><br/>要求修飾提問稿:<br/><br/>請幫我們將以下的文字稍微整理一下, 讓他比較通順易懂: 下個禮拜我們這一組有六位組員，被要求要上台報告有關計算機程式課程的學習心得，題目是:w3: 什麼是 git，GitHub，gist 與 cmsimde? 如何使用這些工具？為什麼要使用這些工具？, 上課時老師只稍微說明一下，但要我們自己找資料聯席，並且六人逐一上台報告心得， 請用大一新生的程度，幫我們這六位組員準備講稿,並且準備六個人分別要上台展示的指令及內容, 講稿請詳細解說, 並列出參考網站來源, 非常感謝。<br/><br/>結果:<br/><br/>下個禮拜我們組有六位組員，會上台報告計算機程式課程的學習心得。報告的題目是：「W3: 什麼是 Git、GitHub、Gist 和 CMSIMDE？如何使用這些工具？為什麼要使用這些工具？」老師在課堂上簡單提過這些工具，但並沒有深入講解，並且要求我們自己搜尋資料，準備報告內容。我們的報告會分成六部分，每位組員負責介紹一個主題，逐一上台展示。<br/><br/>因此，請幫我們為六位組員準備講稿，內容要符合大一新生的理解程度，並且每個人要有具體的指令展示與解說。希望講稿能詳細說明這些工具的基本概念、操作方法及為什麼我們需要使用它們，並附上參考網站來源。<br/><br/>感謝你的幫忙！</p>
+<p>其他相關提問:</p>
+<p>請將以下的 markdown 轉為 html, 其中的 head 標註請用 h4 表示, 不要使用 h3, h2 或 h1。</p>
+<p>請再更詳細說明每一個重點，並且列出能直接在電腦上邊操作邊說明的內容，以及操作步驟，還有操作展示的目的。</p>
+<p>回覆內容請用 html 表示，而 head 標註請用 h4 表示, 不要使用 h3, h2 或 h1。</p>
+<p data-pm-slice="1 1 []">請詳細說明，上述的議題與操作流程跟計算機程式課程有甚麼關係?使用這些工具有甚麼優點?若不使用又會怎樣?</p>
+<hr/>
+<p>參考回覆:</p>
+<p>這是一次很好的學習機會，能夠深入了解 Git、GitHub、Gist 和 CMSIMDE 的使用和意義，並且學會如何在報告中表達這些技術對程式設計的影響。接下來，我會為你們準備一個詳細的講稿，並且安排好每位組員需要上台展示的內容。每個人的講稿會著重於解釋和展示基本概念與操作。</p>
+<h4><strong>整體講稿大綱：</strong></h4>
+<ol>
+<li><strong>組員 1：什麼是 Git？</strong></li>
+<li><strong>組員 2：Git 的基本命令與操作</strong></li>
+<li><strong>組員 3：什麼是 GitHub？</strong></li>
+<li><strong>組員 4：如何使用 GitHub 進行協作</strong></li>
+<li><strong>組員 5：什麼是 Gist？</strong></li>
+<li><strong>組員 6：CMSIMDE 和為什麼要使用 Git、GitHub 和 Gist</strong></li>
+</ol>
+<h4><strong>1. 組員 1：什麼是 Git？</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>大家好，今天我將介紹 Git。Git 是一個分佈式版本控制系統（Version Control System, VCS），由 Linus Torvalds（Linux 的創始人）開發。它主要用來追蹤程式碼的變更，並且能夠幫助多人協作開發同一個專案。</p>
+<ul>
+<li><strong>版本控制：</strong> Git 讓你能夠對每次程式碼的變動進行記錄和管理，並且隨時回到歷史版本。這對於多人協作開發來說非常重要，因為每個人都能夠清楚地知道自己和別人對程式碼的修改。</li>
+<li><strong>分佈式：</strong> Git 是分佈式的，這意味著每個開發者的電腦上都有一份完整的程式碼庫。即使離線也可以進行編輯和提交，後續再與其他開發者同步。</li>
+</ul>
+<p><strong>參考資料：</strong></p>
+<ul>
+<li><a href="https://git-scm.com/">Git 官方網站</a></li>
+<li><a href="https://www.git-scm.com/book/zh-tw/v2">簡介：Git 是什麼？</a></li>
+</ul>
+<hr/>
+<h4><strong>2. 組員 2：Git 的基本命令與操作</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>接下來，我將介紹 Git 的基本命令和操作。這些命令幾乎是每個程式開發者日常必學的。</p>
+<ol>
+<li><strong>初始化 Git 倉庫（初始化 repository）：</strong><br/> <code>git init</code><br/> 這個命令會創建一個新的 Git 倉庫，用來追蹤程式碼變更。</li>
+<li><strong>檢查狀態：</strong><br/> <code>git status</code><br/> 用來檢查當前的版本控制狀態，例如哪些檔案已被修改、哪些尚未加入 Git 追蹤。</li>
+<li><strong>添加文件到版本控制：</strong><br/> <code>git add &lt;檔案名&gt;</code><br/> 把修改的文件加入 Git 追蹤，這樣下一次提交時，Git 會記錄這些變更。</li>
+<li><strong>提交變更：</strong><br/> <code>git commit -m "提交訊息"</code><br/> 用來將變更提交到本地的 Git 倉庫中，並附上描述這次修改的訊息。</li>
+<li><strong>查看提交歷史：</strong><br/> <code>git log</code><br/> 用來查看所有提交的歷史紀錄。</li>
+</ol>
+<p><strong>參考資料：</strong></p>
+<ul>
+<li><a href="https://backlog.com/git-tutorial/cn/">Git 入門指南</a></li>
+<li><a href="https://www.runoob.com/git/git-command-ref.html">Git 常用命令</a></li>
+</ul>
+<hr/>
+<h4><strong>3. 組員 3：什麼是 GitHub？</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>GitHub 是一個基於 Git 的雲端代碼託管平台。它可以讓開發者將本地的 Git 倉庫推送到雲端，並與其他人共享代碼。GitHub 使得程式碼存儲、協作和版本控制變得更加簡單和高效。</p>
+<ul>
+<li><strong>GitHub 的主要功能：</strong></li>
+<ul>
+<li><strong>代碼托管：</strong> GitHub 提供免費的代碼托管服務，可以讓開發者將程式碼儲存在雲端，並且輕鬆與他人共享。</li>
+<li><strong>協作功能：</strong> 開發者可以通過 Fork、Pull Request 等功能來進行協作開發，這對於開源專案尤其重要。</li>
+<li><strong>問題追蹤：</strong> GitHub 還有 Issues 功能，可以幫助團隊追蹤和管理程式中的 Bug 或新功能的開發。</li>
+</ul>
+</ul>
+<p><strong>參考資料：</strong></p>
+<ul>
+<li><a href="https://github.com/">GitHub 官方網站</a></li>
+<li><a href="https://guides.github.com/">GitHub 入門</a></li>
+</ul>
+<hr/>
+<h4><strong>4. 組員 4：如何使用 GitHub 進行協作</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>GitHub 是協作開發的利器。這裡，我們將介紹如何使用 GitHub 進行協作：</p>
+<ol>
+<li><strong>創建一個新的 GitHub 儲存庫（repository）：</strong><br/> 在 GitHub 上創建一個新的儲存庫，然後將本地的 Git 倉庫推送到這個儲存庫。<br/> <code>git remote add origin &lt;repository-url&gt;</code><br/> <code>git push -u origin master</code></li>
+<li><strong>Fork 和 Pull Request：</strong><br/>
+<ul>
+<li><strong>Fork：</strong> 將他人的專案複製到自己的帳號下，這樣就可以在自己帳號中進行修改。</li>
+<li><strong>Pull Request：</strong> 在修改完成後，通過 Pull Request 提交修改，向原作者請求合併（Merge）你的更改。</li>
+</ul>
+</li>
+<li><strong>分支管理：</strong><br/> 在多人協作的情況下，通常每個開發者會創建自己的分支（branch），在完成開發後再合併（merge）到主分支。</li>
+</ol>
+<p><strong>參考資料：</strong></p>
+<ul>
+<li><a href="https://guides.github.com/activities/forking/">GitHub 協作指南</a></li>
+<li><a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request">如何創建 Pull Request</a></li>
+</ul>
+<hr/>
+<h4><strong>5. 組員 5：什麼是 Gist？</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>Gist 是 GitHub 提供的一個簡單的代碼分享和存儲工具，主要用來分享片段代碼或日常的小範例。</p>
+<ul>
+<li><strong>Gist 的特點：</strong></li>
+<ul>
+<li>Gist 允許開發者輕鬆分享代碼片段，並且可以選擇是否公開或私密。</li>
+<li>每個 Gist 都有一個唯一的 URL，方便分享給他人。</li>
+<li>支援版本控制，並且可以對 Gist 進行 Fork 和修改。</li>
+</ul>
+</ul>
+<p><strong>參考資料：</strong></p>
+<ul>
+<li><a href="https://gist.github.com/">Gist 官方網站</a></li>
+<li><a href="https://help.github.com/en/github/creating-cloning-and-archiving-repositories/creating-gists">如何使用 Gist</a></li>
+</ul>
+<hr/>
+<h4><strong>6. 組員 6：CMSIMDE 和為什麼要使用 Git、GitHub 和 Gist</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>最後，我們來談談 CMSIMDE 以及為什麼我們要使用 Git、GitHub 和 Gist。</p>
+<ul>
+<li><strong>CMSIMDE（Content Management System and Integrated Development Environment）：</strong> 這是一個綜合的開發環境，旨在幫助開發者管理和開發程式。它融合了內容管理系統和集成開發環境的功能，可以更高效地協作開發和版本管理。</li>
+<li><strong>為什麼要使用 Git、GitHub 和 Gist：</strong>
+<ul>
+<li><strong>版本控制：</strong> Git 和 GitHub 讓開發者能夠追蹤程式碼的變更，防止程式碼丟失，並且能夠隨時回到舊版本。</li>
+<li><strong>協作開發：</strong> GitHub 和 Gist 使得多人協作開發變得更加順利，無論是協同編寫代碼還是討論功能需求，都能在 GitHub 上輕鬆實現。</li>
+<li><strong>便於分享：</strong> 透過 Gist，開發者能夠迅速分享代碼片段或小範例，這對於學習和交流非常有幫助。</li>
+</ul>
+</li>
+</ul>
+<p><strong>參考資料：</strong></p>
+<ul>
+<li><a href="https://www.cmsimde.com/">CMSIMDE 介紹</a></li>
+<li><a href="https://gist.github.com/">GitHub 和 Gist 介紹</a></li>
+</ul>
+<hr/>
+<p>進一步提問，要求補充更多資料:</p>
+<p>請再更詳細說明每一個重點，並且列出能直接在電腦上邊操作邊說明的內容，以及操作步驟，還有操作展示的目的。</p>
+<p>回覆內容請用 html 表示，而 head 標註請用 h4 表示, 不要使用 h3, h2 或 h1。</p>
+<hr/>
+<p>這是一次很好的學習機會，能夠深入了解 Git、GitHub、Gist 和 CMSIMDE 的使用和意義，並且學會如何在報告中表達這些技術對程式設計的影響。接下來，我會為你們準備一個詳細的講稿，並且安排好每位組員需要上台展示的內容。每個人的講稿會著重於解釋和展示基本概念與操作。</p>
+<h4><strong>整體講稿大綱：</strong></h4>
+<ol>
+<li><strong>組員 1：什麼是 Git？</strong></li>
+<li><strong>組員 2：Git 的基本命令與操作</strong></li>
+<li><strong>組員 3：什麼是 GitHub？</strong></li>
+<li><strong>組員 4：如何使用 GitHub 進行協作</strong></li>
+<li><strong>組員 5：什麼是 Gist？</strong></li>
+<li><strong>組員 6：CMSIMDE 和為什麼要使用 Git、GitHub 和 Gist</strong></li>
+</ol>
+<h4><strong>1. 組員 1：什麼是 Git？</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>大家好，今天我將介紹 Git。Git 是一個分佈式版本控制系統（Version Control System, VCS），由 Linus Torvalds（Linux 的創始人）開發。它的目的是追蹤程式碼的變更，並協助多人協作開發。</p>
+<p>Git 的兩大特點：</p>
+<ul>
+<li><strong>版本控制：</strong> 每次程式碼的變動都會被記錄，並且能夠隨時回到歷史版本。這樣即使有錯誤，也能夠快速恢復程式碼。</li>
+<li><strong>分佈式：</strong> 每個開發者的電腦上都會有一份完整的程式碼庫，這讓開發者能夠在離線的情況下進行編輯，並在有網路時再進行同步。</li>
+</ul>
+<h4><strong>操作展示：</strong></h4>
+<p><strong>目的：</strong> 理解 Git 如何管理程式碼版本並進行變更追蹤。</p>
+<p>請依照下列步驟在電腦中實際操作：</p>
+<ol>
+<li><strong>建立一個新的 Git 倉庫：</strong>
+<p>在你的終端機（Terminal）中，創建一個新的資料夾，然後初始化 Git 倉庫：</p>
+<code>mkdir my_project &amp;&amp; cd my_project</code><br/> <code>git init</code>
+<p>這個命令會創建一個新的 Git 倉庫。</p>
+</li>
+<li><strong>查看 Git 狀態：</strong>
+<p>使用命令檢查當前 Git 倉庫的狀態：</p>
+<code>git status</code>
+<p>這會顯示哪些檔案有變更，但尚未被 Git 追蹤。</p>
+</li>
+<li><strong>創建檔案並提交變更：</strong>
+<p>創建一個簡單的檔案：</p>
+<code>echo "Hello, Git!" &gt; hello.txt</code><br/>
+<p>然後使用以下命令將檔案添加到 Git 追蹤：</p>
+<code>git add hello.txt</code><br/>
+<p>最後提交變更：</p>
+<code>git commit -m "Add hello.txt"</code></li>
+</ol>
+<h4><strong>2. 組員 2：Git 的基本命令與操作</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>接下來，我將介紹 Git 的基本命令，這些是開發過程中最常使用的命令。</p>
+<ul>
+<li><strong>git init：</strong> 用來初始化一個新的 Git 倉庫。</li>
+<li><strong>git add：</strong> 用來將修改過的檔案添加到 Git 追蹤列表。</li>
+<li><strong>git commit：</strong> 用來提交檔案，將變更保存到版本庫。</li>
+<li><strong>git status：</strong> 查看當前的工作區狀態，顯示檔案是否有變更。</li>
+<li><strong>git log：</strong> 查看提交歷史。</li>
+</ul>
+<h4><strong>操作展示：</strong></h4>
+<p><strong>目的：</strong> 熟悉並實際操作 Git 的基本命令。</p>
+<p>請依照下列步驟在電腦中進行：</p>
+<ol>
+<li><strong>查看工作區狀態：</strong>
+<p>使用命令檢查當前工作區的狀態：</p>
+<code>git status</code></li>
+<li><strong>查看 Git 提交歷史：</strong>
+<p>顯示最近的提交紀錄：</p>
+<code>git log</code>
+<p>可以使用 `q` 退出日誌查看。</p>
+</li>
+</ol>
+<h4><strong>3. 組員 3：什麼是 GitHub？</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>GitHub 是基於 Git 的代碼託管平台，可以讓開發者將本地的 Git 倉庫上傳到雲端，並與其他人共享代碼。</p>
+<ul>
+<li><strong>代碼托管：</strong> GitHub 允許免費或付費的方式來儲存你的代碼，並可以方便地與他人協作。</li>
+<li><strong>協作功能：</strong> 例如 Fork、Pull Request，這些功能使得開發者能夠在開源項目中協作。</li>
+<li><strong>問題追蹤：</strong> GitHub 提供 Issues 功能，方便開發團隊追蹤問題和進度。</li>
+</ul>
+<h4><strong>操作展示：</strong></h4>
+<p><strong>目的：</strong> 演示如何在 GitHub 上創建和管理倉庫。</p>
+<p>請依照下列步驟操作：</p>
+<ol>
+<li><strong>創建 GitHub 倉庫：</strong>
+<p>進入 GitHub 網站，點選 "New Repository" 並創建一個新的倉庫。</p>
+</li>
+<li><strong>將本地倉庫推送到 GitHub：</strong>
+<p>在終端機中，執行以下命令：</p>
+<code>git remote add origin https://github.com/yourusername/your-repository.git</code><br/> <code>git push -u origin master</code></li>
+</ol>
+<h4><strong>4. 組員 4：如何使用 GitHub 進行協作</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>GitHub 使多人協作變得簡單。這裡介紹如何在 GitHub 上協作開發。</p>
+<ul>
+<li><strong>Fork：</strong> 將他人的倉庫複製到你的 GitHub 帳號下，這樣你就可以自由修改。</li>
+<li><strong>Pull Request：</strong> 當你完成修改後，向原始倉庫發送 Pull Request 請求合併你的變更。</li>
+<li><strong>分支管理：</strong> 每個開發者可以創建自己的分支來進行開發，避免直接修改主分支。</li>
+</ul>
+<h4><strong>操作展示：</strong></h4>
+<p><strong>目的：</strong> 演示如何使用 GitHub 進行協作開發。</p>
+<p>請依照下列步驟操作：</p>
+<ol>
+<li><strong>Fork 一個倉庫：</strong>
+<p>在 GitHub 上找到一個開源專案，點選 "Fork" 將其複製到你的帳號。</p>
+</li>
+<li><strong>創建 Pull Request：</strong>
+<p>修改 Fork 的倉庫後，點選 "Pull Request" 發送合併請求。</p>
+</li>
+</ol>
+<h4><strong>5. 組員 5：什麼是 Gist？</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>Gist 是 GitHub 提供的一個工具，讓開發者可以分享小片段的代碼或文檔。</p>
+<h4><strong>操作展示：</strong></h4>
+<p><strong>目的：</strong> 演示如何創建和分享 Gist。</p>
+<p>請依照下列步驟操作：</p>
+<ol>
+<li><strong>創建 Gist：</strong>
+<p>進入 Gist 網站，點選 "Create Gist"，並粘貼你想分享的代碼。</p>
+</li>
+<li><strong>分享 Gist：</strong>
+<p>創建完後，你會獲得一個唯一的 URL，可以將這個 URL 分享給其他人。</p>
+</li>
+</ol>
+<h4><strong>6. 組員 6：CMSIMDE 和為什麼要使用 Git、GitHub 和 Gist</strong></h4>
+<p><strong>講稿內容：</strong></p>
+<p>這部分將介紹 CMSIMDE 並討論使用 Git、GitHub 和 Gist 的重要性。</p>
+<ul>
+<li><strong>版本控制：</strong> 使用 Git 可以讓開發者記錄代碼的變更並輕鬆回滾。</li>
+<li><strong>協作開發：</strong> GitHub 和 Gist 是協作開發的好工具，能讓多人輕鬆協同工作。</li>
+<li><strong>簡化分享：</strong> 使用 Gist 可以快速分享代碼片段和文件。</li>
+</ul>
+<p>這些工具對於開發流程非常有幫助，無論是學習、開發還是協作，都能大大提高效率。</p>
+<hr/>
+<h4><strong>請詳細說明，上述的議題與操作流程跟計算機程式課程有甚麼關係?使用這些工具有甚麼優點?若不使用又會怎樣?</strong></h4>
+<h4><strong>Git、GitHub、Gist 和 CMSIMDE 與計算機程式課程的關係</strong></h4>
+<p>在計算機程式設計課程中，學習如何編寫程式、協作開發、管理程式碼變更，以及有效地共享代碼是非常重要的。Git、GitHub、Gist 和 CMSIMDE 是一些現代開發中不可或缺的工具，它們不僅有助於程式開發過程的管理，還能提高開發效率，促進團隊協作。以下將詳細說明這些工具與計算機程式課程的關係，以及它們的優點，並分析如果不使用這些工具可能帶來的後果。</p>
+<h4><strong>1. Git 與程式設計課程的關係</strong></h4>
+<p><strong>Git</strong> 是一個強大的版本控制工具，主要用來追蹤程式碼的變更，確保開發過程中的每個修改都有記錄，並且能夠隨時回到先前的版本。對於程式設計課程來說，Git 可以幫助學生管理自己的程式碼版本，防止在編寫程式時發生錯誤丟失，並且讓學生能夠在團隊合作中協同開發。</p>
+<h4><strong>操作流程：</strong></h4>
+<p><strong>目的：</strong> 學生使用 Git 來管理自己的程式碼變更和協作開發。</p>
+<ol>
+<li><strong>初始化本地倉庫：</strong>
+<p>在學生開始編寫程式碼時，使用 `git init` 創建一個本地 Git 倉庫，開始管理程式碼的版本。</p>
+</li>
+<li><strong>提交程式碼：</strong>
+<p>每當學生進行了一些變更（如修正錯誤或增加功能），可以使用 `git add` 和 `git commit` 來記錄和保存這些變更。</p>
+</li>
+<li><strong>查看變更歷史：</strong>
+<p>學生可以使用 `git log` 查看所有的提交歷史，了解程式碼的變更情況。</p>
+</li>
+</ol>
+<h4><strong>優點：</strong></h4>
+<ul>
+<li><strong>版本控制：</strong> Git 允許學生記錄每一次的程式碼變更，並能隨時回到歷史版本，這對於避免錯誤和修改衝突非常重要。</li>
+<li><strong>協作開發：</strong> 在團隊專案中，Git 使得每個組員都能在自己的工作區域編寫程式碼，並能夠在需要時將自己的變更推送到主倉庫。</li>
+</ul>
+<h4><strong>不使用 Git 的後果：</strong></h4>
+<ul>
+<li><strong>程式碼丟失：</strong> 若學生不使用 Git，當程式碼出現錯誤或變更不當時，無法輕易回到之前的版本，可能會浪費大量時間來修復錯誤。</li>
+<li><strong>難以協作：</strong> 團隊協作將變得困難，因為每個人可能會在不同的版本上工作，無法輕鬆合併所有的變更，甚至會導致代碼衝突。</li>
+</ul>
+<h4><strong>2. GitHub 與程式設計課程的關係</strong></h4>
+<p><strong>GitHub</strong> 是基於 Git 的雲端代碼託管平台，提供在線存儲和版本控制服務。GitHub 的協作功能使得學生能夠將自己的程式碼上傳至雲端，並且與其他組員共享、協作開發，這對於程式設計課程中的團隊專案開發尤為重要。</p>
+<h4><strong>操作流程：</strong></h4>
+<p><strong>目的：</strong> 學生將本地程式碼推送到 GitHub 上，並通過協作功能進行合作開發。</p>
+<ol>
+<li><strong>創建 GitHub 倉庫：</strong>
+<p>學生可以在 GitHub 上創建一個新倉庫，並將本地倉庫與之連接，通過 `git remote add` 和 `git push` 把程式碼推送到 GitHub。</p>
+</li>
+<li><strong>Fork 和 Pull Request：</strong>
+<p>學生可以 Fork 他人的專案，修改後再向原專案發送 Pull Request，請求將修改合併到主專案中。</p>
+</li>
+</ol>
+<h4><strong>優點：</strong></h4>
+<ul>
+<li><strong>協作功能：</strong> GitHub 使得學生能夠進行多人協作，並且能夠清晰地管理和合併不同組員的變更。</li>
+<li><strong>雲端儲存：</strong> GitHub 提供雲端儲存，學生可以隨時訪問自己的程式碼，並且不需要擔心資料丟失。</li>
+</ul>
+<h4><strong>不使用 GitHub 的後果：</strong></h4>
+<ul>
+<li><strong>協作困難：</strong> 如果不使用 GitHub，學生之間的程式碼協作將變得繁瑣，難以管理變更，也難以追蹤問題。</li>
+<li><strong>無法便捷共享：</strong> 學生無法像 GitHub 一樣方便地向他人展示自己的代碼，協作和交流會受到限制。</li>
+</ul>
+<h4><strong>3. Gist 與程式設計課程的關係</strong></h4>
+<p><strong>Gist</strong> 是 GitHub 提供的代碼片段分享平台，適合學生分享小範圍的代碼段或程式設計題目的解法。Gist 使得學生能夠輕鬆展示學習過程中的代碼片段或共享一些學習心得。</p>
+<h4><strong>操作流程：</strong></h4>
+<p><strong>目的：</strong> 學生使用 Gist 快速分享代碼片段或小範例。</p>
+<ol>
+<li><strong>創建 Gist：</strong>
+<p>學生可以將代碼片段粘貼到 Gist 網站，創建公開或私有的 Gist，並將其分享給其他人。</p>
+</li>
+</ol>
+<h4><strong>優點：</strong></h4>
+<ul>
+<li><strong>代碼分享：</strong> 學生可以輕鬆分享自己的學習代碼片段，這對於同學之間的學習交流非常有幫助。</li>
+<li><strong>簡單的版本控制：</strong> Gist 會自動為每個代碼片段建立版本控制，學生可以追蹤代碼的歷史變化。</li>
+</ul>
+<h4><strong>不使用 Gist 的後果：</strong></h4>
+<ul>
+<li><strong>難以分享學習成果：</strong> 學生如果不使用 Gist，將難以快速分享自己的代碼片段，學習過程中也無法有效地與他人進行交流。</li>
+<li><strong>代碼存儲混亂：</strong> 代碼可能會散落在不同的地方，難以集中管理和查詢。</li>
+</ul>
+<h4><strong>4. CMSIMDE 與程式設計課程的關係</strong></h4>
+<p><strong>CMSIMDE</strong> 是一種綜合開發環境，它融合了內容管理系統和集成開發環境（IDE）的功能，提供一個集中式的開發平台。在程式設計課程中，CMSIMDE 可以幫助學生更高效地開發、管理和協作程式碼。</p>
+<h4><strong>優點：</strong></h4>
+<ul>
+<li><strong>提高開發效率：</strong> CMSIMDE 提供了一個統一的開發環境，學生可以在一個平台上進行編程、調試和版本管理，避免多重工具之間的切換。</li>
+<li><strong>集成協作工具：</strong> CMSIMDE 可能包含像 GitHub 等協作工具，幫助學生進行多人協作開發。</li>
+</ul>
+<h4><strong>不使用 CMSIMDE 的後果：</strong></h4>
+<ul>
+<li><strong>開發效率低：</strong> 如果學生沒有使用 CMSIMDE，他們將需要在多個工具和平台之間切換，這會浪費時間並降低效率。</li>
+<li><strong>難以協作：</strong> 沒有 CMSIMDE，學生將難以在一個平台上集中管理開發、測試和版本控制，協作會變得更加複雜。</li>
+</ul><br />Revealjs << <a href='Revealjs.html'>Previous</a> <a href='Examples.html'>Next</a> >> Examples</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

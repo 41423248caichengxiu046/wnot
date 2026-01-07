@@ -1,0 +1,650 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cp_demo</title>
+        <meta charset="utf-8">
+<meta property="head" content="H2">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cp demo</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cp demo</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='AI.html'>AI</a></li></ul><li><a href='Revealjs.html'>Revealjs</a><li><a href='Python.html'>Python</a><li class='has-children'><a href='Examples.html'>Examples</a><ul class='dropdown'><li><a href='w5_1.html'>w5_1</a><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='9499.html'>9499</a><li><a href='9500.html'>9500</a></li></ul><li class='has-children'><a href='Brython.html'>Brython</a><ul class='dropdown'><li><a href='Pyodide3.html'>Pyodide3</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">w7 << <a href='w7.html'>Previous</a> <a href='Projects.html'>Next</a> >> Projects<br /><h1>w10</h1>
+<p>程式開發說明:</p>
+<p style="padding-left: 30px;">請使用 Python 透過 ORM 套件 <strong>Peewee</strong> 連接並建立一個名為 <strong>stud2.sqlite</strong> 的 SQLite 資料庫，其資料表需包含 <code>index</code>, <code>account</code>, <code>password</code>, <code>studnum</code>, <code>memo</code> 等欄位，其中 <code>index</code> 為自動遞增主鍵（從 1 開始），<code>account</code> 欄位的內容為從 <code>a1</code> 到 <code>a500</code> 共 500 筆資料，<code>password</code> 欄位需以不易混淆的英文字母（A–Z）與數字（0–9）組成，並利用亂數方式產生 4 位字元的密碼，<code>studnum</code> 與 <code>memo</code> 欄位預設留空。</p>
+<p style="padding-left: 30px;">建立該資料庫的程式請命名為 <strong>createdb.py</strong>，並於檔案開頭以註解說明執行本程式前必須安裝的模組（例如 <code>peewee</code>、<code>random</code> 等）及注意事項。</p>
+<p style="padding-left: 30px;">接著，請再撰寫另一支使用 <strong>Python + Flask + Peewee ORM</strong> 的應用程式，該程式需建立一個具兩階段驗證流程的網頁系統：第一階段提供使用者輸入通關密碼的頁面，若輸入正確的通關密碼 <code>"thepassword"</code>，則進入第二階段的表單頁面；若輸入錯誤，則顯示 <code>"抱歉, 請洽管理者!"</code> 訊息，停留三秒後自動跳回密碼輸入頁面。</p>
+<p style="padding-left: 30px;">在第二階段頁面中，使用者需選擇課程選項（可選項目為 <code>1a</code>, <code>1b</code>, <code>2a</code>, <code>2b</code>），並輸入學號與姓名。當使用者送出資料後，系統需連接 <strong>course_num_name2.sqlite</strong> 資料庫（其欄位包含 <code>index</code>, <code>course</code>, <code>number</code>, <code>name</code>），查詢與使用者所選課程及輸入的學號、姓名相符的資料；若比對正確，則從 <strong>stud2.sqlite</strong> 中找出尚未填入 <code>studnum</code> 的帳號，顯示其 <code>account</code> 與 <code>password</code> 資料，並提示使用者以手機拍下該畫面；隨後，將該筆帳號的 <code>studnum</code> 欄位更新為使用者輸入的學號。</p>
+<p style="padding-left: 30px;">整體流程中，<strong>createdb.py</strong> 為建立 Linux 登入帳號與密碼資料庫的程式，而第二支 Flask 程式則用於驗證課程、學號、姓名後，自動發放對應的登入帳密，並依據 <strong>course_num_name2.sqlite</strong> 的內容進行比對。最後，請先建立一個空的 <strong>course_num_name2.sqlite</strong> 資料庫檔案以供後續資料匯入，並從 <strong>stud2.sqlite</strong> 中擷取所有的 <code>account</code> 與 <code>password</code> 欄位資料，將其以 <strong>Tab</strong> 符號分隔後，輸出至文字檔 <strong>account_password2.txt</strong>。</p>
+<p>Python 與 SQLite 資料庫:</p>
+<p>create_empty_course_db.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sqlite3  # 引入 sqlite3 模組，用於與 SQLite 資料庫進行互動
+
+conn = sqlite3.connect('course_num_name.sqlite')  # 連接或創建名為 'course_num_name.sqlite' 的 SQLite 資料庫
+cursor = conn.cursor()  # 創建一個游標物件，後續的 SQL 操作會通過這個游標執行
+
+# 創建表格 'course_num_name'，如果表格已存在則不再創建
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS course_num_name (  # 如果資料表 'course_num_name' 不存在，則創建
+    id INTEGER PRIMARY KEY AUTOINCREMENT,  # id 欄位為自動遞增的整數，作為主鍵
+    course TEXT,  # course 欄位，儲存課程編號，型別為 TEXT
+    number TEXT,  # number 欄位，儲存課程編號，型別為 TEXT
+    name TEXT  # name 欄位，儲存課程名稱，型別為 TEXT
+);
+''')
+
+conn.commit()  # 提交對資料庫的所有變更，將創建的表格儲存到資料庫中
+conn.close()  # 關閉資料庫連線，釋放資源
+
+print("空的 course_num_name.sqlite 資料庫已建立！")  # 輸出成功訊息，告知資料庫已成功建立
+</pre>
+<p>createdb.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># createdb.py
+# 執行此程式前需要安裝以下模組：
+# pip install peewee   # Peewee 是一個輕量級 ORM（Object Relational Mapping）工具，用於操作資料庫
+# pip install random   # random 是 Python 內建模組，其實無需安裝，但此註解提醒要使用隨機數功能
+
+import random  # 匯入 random 模組，用於生成隨機密碼
+import string  # 匯入 string 模組，用於取得英文字母與數字字元
+from peewee import *  # 從 peewee 模組中匯入所有類別與方法，以便定義資料庫模型
+
+# 設定 SQLite 資料庫，建立或連接名為 'stud2.sqlite' 的資料庫
+db = SqliteDatabase('stud2.sqlite')
+
+# 定義資料表模型 Student，繼承自 peewee 的 Model 類別
+class Student(Model):
+    account = CharField(unique=True)  # 帳號欄位，使用文字型別（CharField），且設為唯一（unique=True）
+    password = CharField()  # 密碼欄位，使用文字型別
+    studnum = CharField(null=True)  # 學號欄位，允許為空值（null=True）
+    memo = CharField(null=True)  # 備註欄位，允許為空值
+
+    class Meta:
+        database = db  # 指定此模型所使用的資料庫為上方建立的 db
+
+# 建立資料庫連線
+db.connect()
+# 在資料庫中建立 Student 資料表（若不存在）
+db.create_tables([Student])
+
+# 定義一個隨機生成密碼的函數
+def generate_password():
+    chars = string.ascii_uppercase + string.digits  # 定義可用字元（A-Z 與 0-9）
+    return ''.join(random.choice(chars) for _ in range(4))  # 隨機挑選 4 個字元並組合成密碼
+
+# 使用 for 迴圈插入 500 筆資料
+for i in range(1, 501):  # 從 1 執行到 500（共 500 次）
+    account = f'a{i}'  # 帳號名稱為 a1, a2, a3, ..., a500
+    password = generate_password()  # 產生隨機密碼
+    # 建立 Student 資料表中的一筆新資料（插入帳號與密碼）
+    Student.create(account=account, password=password)
+
+print("資料庫已建立並插入 500 筆帳號資料！")  # 顯示成功訊息，表示已成功建立資料庫與資料
+</pre>
+<p></p>
+<p>add_course_field_to_stud2_db.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># add_course_column.py
+from peewee import *  # 匯入 peewee 模組的所有內容，用於定義與操作 SQLite 資料庫模型
+
+# 設定資料庫連接
+db = SqliteDatabase('stud2.sqlite')  # 指定資料庫為 stud2.sqlite，若不存在則會自動建立
+
+# 定義學生資料表模型 Student，對應資料庫中的 Student 資料表
+class Student(Model):
+    id = AutoField()  # 自動遞增的整數欄位，作為主鍵（PRIMARY KEY）
+    course = CharField()  # 新增的課程欄位，用來儲存課程名稱或代碼
+    account = CharField(unique=True)  # 帳號欄位，設為唯一（unique=True）
+    password = CharField()  # 密碼欄位，使用文字型別
+    studnum = CharField(null=True)  # 學號欄位，可允許為空值
+    memo = CharField(null=True)  # 備註欄位，可允許為空值
+    inner_port = IntegerField(null=True)  # 新增的內部連接埠欄位，可允許為空值
+    outter_port = IntegerField(null=True)  # 新增的外部連接埠欄位，可允許為空值
+
+    class Meta:
+        database = db  # 指定該模型所屬的資料庫
+
+# 啟動資料庫連線
+db.connect()
+
+# 檢查 Student 資料表是否已存在，若不存在則自動建立
+if not Student.table_exists():
+    db.create_tables([Student])  # 建立 Student 資料表
+
+# 更新資料表結構的說明（此段程式實際上未直接修改結構）
+# 若資料表已存在且想新增 'course' 欄位，peewee 不支援自動修改現有表結構，
+# 通常需透過手動 SQL ALTER TABLE 指令或使用資料遷移工具（如 playhouse.migrate）完成
+print("Successfully added 'course' column to 'Student' table.")  # 顯示成功訊息，提示欄位已新增（僅提示性訊息）
+
+# 關閉資料庫連線以釋放資源
+db.close()
+</pre>
+<p></p>
+<p>extract_account_password.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># extract_account_password.py
+from peewee import *  # 匯入 peewee 模組中的所有功能，用來與 SQLite 資料庫互動
+
+# 設定資料庫連接，指定使用 'stud2.sqlite' 資料庫
+db = SqliteDatabase('stud2.sqlite')
+
+# 定義 Student 資料表模型，對應資料庫中的 Student 表
+class Student(Model):
+    account = CharField(unique=True)  # 帳號欄位，使用文字型別並設定唯一性（unique=True）
+    password = CharField()  # 密碼欄位，使用文字型別
+    studnum = CharField(null=True)  # 學號欄位，可允許為空值
+    memo = CharField(null=True)  # 備註欄位，可允許為空值
+
+    class Meta:
+        database = db  # 指定該模型所屬的資料庫
+
+# 透過 Peewee ORM 查詢 Student 資料表中的所有資料
+students = Student.select()
+
+# 開啟（或建立）名為 'account_password.txt' 的文字檔，以寫入模式（'w'）開啟
+with open('account_password2.txt', 'w') as file:
+    # 使用迴圈逐筆讀取資料
+    for student in students:
+        # 將每位學生的帳號與密碼以「帳號&lt;TAB&gt;密碼」的格式寫入文字檔中
+        file.write(f'{student.account}\t{student.password}\n')
+
+# 完成後輸出訊息，提示帳號與密碼已成功匯出
+print("帳號與密碼已寫入 account_password2.txt")
+</pre>
+<p></p>
+<p>save_course_number_name_into_db.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from peewee import *
+import os
+
+# 設定資料庫連接
+db = SqliteDatabase('course_num_name2.sqlite')
+
+# 定義課程資料表模型
+class Course(Model):
+    course = CharField()  # 課程名稱（例如 1a）
+    number = CharField()  # 學號
+    name = CharField()    # 姓名
+
+    class Meta:
+        database = db
+
+# 設置資料庫連接
+db.connect()
+
+# 確保資料表存在
+db.create_tables([Course])
+
+# 讀取檔案並寫入資料庫的函式
+def import_course_data(filename, course_name):
+    try:
+        # 讀取檔案
+        with open(filename, 'r', encoding='utf-8') as file:
+            for line in file:
+                # 拆分每行的學號和姓名
+                parts = line.strip().split('\t')  # 使用 tab 拆分
+                if len(parts) == 2:  # 確保每行資料都有學號和姓名
+                    number, name = parts
+                    # 寫入資料庫
+                    Course.create(course=course_name, number=number, name=name)
+                    print(f"已將 {number} - {name} 寫入資料庫")
+    except Exception as e:
+        print(f"讀取檔案 {filename} 時發生錯誤: {e}")
+
+# 依次讀取各個檔案並寫入資料庫
+file_list = ['1a_num_name2.txt', '1b_num_name2.txt', '2a_num_name2.txt', '2b_num_name2.txt']
+for file in file_list:
+    course_name = file.split('_')[0]  # 取檔名的第一部分作為課程名稱
+    if os.path.exists(file):
+        import_course_data(file, course_name)
+    else:
+        print(f"檔案 {file} 不存在！")
+</pre>
+<p>add_inner_outter_ports.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 更新 stud2.sqlite 資料庫，為 student 表新增 inner_port 和 outter_port 欄位，並自動填入值
+from peewee import *
+import sqlite3
+
+# 連接到現有資料庫
+db = SqliteDatabase('stud2.sqlite')
+
+# 定義學生資料表模型
+class Student(Model):
+    id = AutoField()
+    account = CharField(unique=True)
+    password = CharField()
+    studnum = CharField(null=True)
+    memo = CharField(null=True)
+    inner_port = IntegerField(null=True)   # 內部端口
+    outter_port = IntegerField(null=True)  # 外部端口
+
+    class Meta:
+        database = db
+
+# 1. 連接資料庫
+db.connect()
+
+# 2. 確保資料表存在
+db.create_tables([Student])
+
+# 3. 新增欄位 (SQLite 支援 ALTER TABLE ADD COLUMN)
+with db.atomic():
+    db.execute_sql('ALTER TABLE student ADD COLUMN inner_port INTEGER')
+    db.execute_sql('ALTER TABLE student ADD COLUMN outter_port INTEGER')
+
+# 4. 為每筆學生資料分配內外部端口
+students = Student.select()
+inner_port_value = 8001
+outter_port_value = 9001
+
+for student in students:
+    student.inner_port = inner_port_value
+    student.outter_port = outter_port_value
+    student.save()
+    inner_port_value += 1
+    outter_port_value += 1
+
+print("資料已更新，已成功為每筆資料新增內外部端口！")
+</pre>
+<p>readd_course_field_to_stud2_db.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sqlite3
+
+# 連接資料庫
+conn = sqlite3.connect('stud2.sqlite')
+cursor = conn.cursor()
+
+# 創建新的資料表 student_new，加入 course 欄位
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS student_new (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        course TEXT NOT NULL,
+        account TEXT UNIQUE,
+        password TEXT,
+        studnum TEXT,
+        memo TEXT,
+        inner_port INTEGER,
+        outter_port INTEGER
+    )
+''')
+
+# 將舊資料表 student 的資料搬移到 student_new，course 欄位先填空字串
+cursor.execute('''
+    INSERT INTO student_new (course, account, password, studnum, memo, inner_port, outter_port)
+    SELECT '', account, password, studnum, memo, inner_port, outter_port FROM student
+''')
+
+# 刪除舊資料表
+cursor.execute('DROP TABLE IF EXISTS student')
+
+# 將新資料表重新命名為舊資料表名稱
+cursor.execute('ALTER TABLE student_new RENAME TO student')
+
+# 提交更改並關閉資料庫
+conn.commit()
+conn.close()
+
+print("資料表結構已經更新，並成功新增 'course' 欄位。")
+</pre>
+<p></p>
+<p>app.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, render_template, request, redirect, url_for
+from peewee import *
+import sqlite3
+
+# 設定資料庫連接
+db = SqliteDatabase('stud2.sqlite')
+
+# 定義學生資料表模型
+class Student(Model):
+    id = AutoField()             # 自動生成主鍵欄位
+    course = CharField()         # 課程欄位
+    account = CharField(unique=True)
+    password = CharField()
+    studnum = CharField(null=True)
+    memo = CharField(null=True)
+    inner_port = IntegerField(null=True)
+    outter_port = IntegerField(null=True)
+
+    class Meta:
+        database = db
+
+# 定義 Flask 應用
+app = Flask(__name__)
+
+# 第一階段的通關密碼
+CORRECT_PASSWORD = "thepassword"
+
+# 首頁路由
+@app.route('/')
+def home():
+    return render_template('login.html')
+
+# 驗證第一階段密碼
+@app.route('/validate_password', methods=['POST'])
+def validate_password():
+    entered_password = request.form.get('password')
+    if entered_password == CORRECT_PASSWORD:
+        return redirect(url_for('course_selection'))
+    return render_template('login.html', error="抱歉, 請洽管理者!")
+
+# 課程選擇頁面
+@app.route('/course_selection')
+def course_selection():
+    return render_template('course_selection.html')
+
+# 處理課程選擇與分配帳號
+@app.route('/submit_course', methods=['POST'])
+def submit_course():
+    selected_course = request.form.get('course')
+    student_number = request.form.get('studnum')
+    student_name = request.form.get('name')
+
+    # 查詢 course 資料庫
+    conn = sqlite3.connect('course_num_name2.sqlite')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM course WHERE course=? AND number=? AND name=?', 
+                   (selected_course, student_number, student_name))
+    result = cursor.fetchone()
+    conn.close()
+
+    if not result:
+        return "資料錯誤，請洽管理者"
+
+    # 檢查是否已分配
+    student = Student.select().where(Student.studnum==student_number, Student.course==selected_course).first()
+    if student:
+        return render_template('login.html', error="已經分配過，若有問題請洽管理者.")
+
+    # 找出尚未分配的帳號
+    student_to_assign = Student.select().where(Student.studnum.is_null()).first()
+    if not student_to_assign:
+        return render_template('login.html', error="所有帳號已經被分配，請洽管理者.")
+
+    # 分配學號與課程
+    student_to_assign.studnum = student_number
+    student_to_assign.course = selected_course
+    student_to_assign.save()
+
+    # 顯示帳號、密碼、端口與說明
+    return render_template('show_account.html',
+                           account=student_to_assign.account,
+                           password=student_to_assign.password,
+                           inner_port=student_to_assign.inner_port,
+                           outter_port=student_to_assign.outter_port,
+                           explanation=f"""
+                           請利用帳號 {student_to_assign.account} 及密碼 {student_to_assign.password} 登入 s5.eng.nfu.edu.tw。&lt;br/&gt;
+                           指令為: ssh {student_to_assign.account}@s5.eng.nfu.edu.tw，輸入由英文大寫字母與數字所組成的密碼後登入。&lt;br /&gt;&lt;br /&gt;
+                           登入後將 {student_to_assign.inner_port} 設定在 server.py 後，&lt;br /&gt;
+                           您將可以透過 &lt;a href="https://s5.eng.nfu.edu.tw:{student_to_assign.outter_port}"&gt;https://s5.eng.nfu.edu.tw:{student_to_assign.outter_port}&lt;/a&gt; 連線至動態編輯網頁，&lt;br /&gt;&lt;br /&gt;
+                           並使用 &lt;a href="https://s5.eng.nfu.edu.tw/~{student_to_assign.account}"&gt;https://s5.eng.nfu.edu.tw/~{student_to_assign.account}&lt;/a&gt; 連線至帳號下的 public_html 目錄中的靜態網頁資料。&lt;br /&gt;&lt;br /&gt;
+                           請隨即&lt;strong&gt;利用手機拍下本頁面資料&lt;/strong&gt;，在本學期課程結束前保護好您的帳號與密碼，並確認所有埠號設定正確。""")
+
+# 管理者帳號登入
+@app.route('/alogin', methods=['GET', 'POST'])
+def alogin():
+    if request.method == 'POST':
+        account = request.form.get('account')
+        password = request.form.get('password')
+        if account == "theaccount" and password == "thepassword":
+            return render_template('find_studnum.html')
+        return render_template('alogin.html', error="帳號或密碼錯誤")
+    return render_template('alogin.html')
+
+# 查詢 studnum
+@app.route('/find_studnum', methods=['POST'])
+def find_studnum():
+    studnum = request.form.get('studnum')
+    students = Student.select().where(Student.studnum.contains(studnum))
+    if students:
+        return render_template('show_multiple_students.html', students=students)
+    return render_template('find_studnum.html', error="未找到對應的學生資料")
+
+if __name__ == '__main__':
+    app.run(debug=True)
+</pre>
+<p></p>
+<p>templates/login.html</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;登入頁面&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;請輸入通關密碼&lt;/h2&gt;
+    &lt;form method="POST" action="/validate_password"&gt;
+        &lt;input type="password" name="password" required&gt;
+        &lt;button type="submit"&gt;送出&lt;/button&gt;
+    &lt;/form&gt;
+    {% if error %}
+        &lt;p&gt;{{ error }}&lt;/p&gt;
+    {% endif %}
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p></p>
+<p>templates/course_selection.html</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;課程選擇&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;選擇課程&lt;/h2&gt;
+    &lt;form method="POST" action="/submit_course"&gt;
+     修課班級:
+        &lt;select name="course"&gt;
+            &lt;option value="1a"&gt;1a&lt;/option&gt;
+            &lt;option value="1b"&gt;1b&lt;/option&gt;
+            &lt;option value="2a"&gt;2a&lt;/option&gt;
+            &lt;option value="2b"&gt;2b&lt;/option&gt;
+        &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+        學號: &lt;input type="text" name="studnum" placeholder="學號" required&gt;&lt;br&gt;&lt;br&gt;
+        姓名: &lt;input type="text" name="name" placeholder="姓名" required&gt;&lt;br&gt;&lt;br&gt;
+        &lt;button type="submit"&gt;送出&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p></p>
+<p>show_account.html</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="zh"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;顯示帳號密碼&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;帳號與密碼&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;帳號:&lt;/strong&gt; {{ account }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;密碼:&lt;/strong&gt; {{ password }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;內部端口 (inner_port):&lt;/strong&gt; {{ inner_port }}&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;外部端口 (outter_port):&lt;/strong&gt; {{ outter_port }}&lt;/p&gt;
+    &lt;p&gt;{{ explanation|safe }}&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p><a href="./../downloads/2025_cp_project.7z">2025_cp_project.7z</a></p><br />w7 << <a href='w7.html'>Previous</a> <a href='Projects.html'>Next</a> >> Projects</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
